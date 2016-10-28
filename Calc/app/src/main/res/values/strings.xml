@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">Calc</string>
+    <string name="app_name">Calculator</string>
+    <string name="default_result">0</string>
+    <string name="d0">0</string>
+    <string name="d1">1</string>
+    <string name="d2">2</string>
+    <string name="d3">3</string>
+    <string name="d4">4</string>
+    <string name="d5">5</string>
+    <string name="d6">6</string>
+    <string name="d7">7</string>
+    <string name="d8">8</string>
+    <string name="d9">9</string>
+    <string name="clear">C</string>
+    <string name="del">DEL</string>
+    <string name="negate">±</string>
+    <string name="add">+</string>
+    <string name="sub">-</string>
+    <string name="mul">×</string>
+    <string name="div">÷</string>
+    <string name="eqv">=</string>
+    <string name="decimal_separator">.</string>
+    <string name="initial_value">0</string>
+    <string name="error_message">Error</string>
 </resources>

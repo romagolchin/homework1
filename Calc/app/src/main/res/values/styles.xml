@@ -1,11 +1,49 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="CalcButton" parent="@android:style/Widget.Button">
+        <item name="android:background">@color/colorOrdinaryButton</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_columnWeight">1</item>
+        <item name="layout_rowWeight">1</item>
+        <item name="android:layout_gravity">fill_vertical</item>
+    </style>
+
+    <style name="LandscapeCalcButton" parent="CalcButton">
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="DigitButton" parent="CalcButton">
+        <item name="android:onClick">onDigit</item>
+    </style>
+    <style name="LandscapeDigitButton" parent="LandscapeCalcButton">
+        <item name="android:onClick">onDigit</item>
+    </style>
+
+    <style name="OperatorButton" parent="CalcButton">
+        <item name="android:onClick">onBinOperator</item>
+    </style>
+
+    <style name="LandscapeOperatorButton" parent="LandscapeCalcButton">
+        <item name="android:onClick">onBinOperator</item>
+    </style>
+
+    <style name="CalcTextView" parent="@android:style/Widget.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAlignment">textEnd</item>
     </style>
 
 </resources>

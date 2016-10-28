@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="font_size">32sp</dimen>
+    <dimen name="main_font_size">42sp</dimen>
+    <dimen name="land_main_margin_bottom">10dp</dimen>
+    <dimen name="main_margin_bottom">20dp</dimen>
+</resources>

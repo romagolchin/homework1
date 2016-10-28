@@ -1,7 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame">
 
-</LinearLayout>
+
+    <android.support.v7.widget.GridLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        app:alignmentMode="alignBounds"
+        app:columnCount="4"
+        app:rowCount="5"
+        app:orientation="horizontal"
+        app:layout_heightPercent="60%"
+        >
+
+        <Button
+            android:id="@+id/clear"
+            style="@style/CalcButton"
+            android:onClick="onClear"
+            android:text="@string/clear"
+            android:textSize="@dimen/font_size"
+            app:layout_columnSpan="1" />
+
+        <Button
+            android:id="@+id/del"
+            style="@style/CalcButton"
+            android:onClick="onDelete"
+            android:text="@string/del" />
+
+
+        <Button
+            android:id="@+id/negate"
+            style="@style/CalcButton"
+            android:onClick="onNegate"
+            android:text="@string/negate"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/OperatorButton"
+            android:text="@string/div"
+            android:textSize="@dimen/font_size" />
+
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d7"
+            android:id="@+id/d7"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d8"
+            android:id="@+id/d8"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d9"
+            android:id="@+id/d9"
+            android:textSize="@dimen/font_size" />
+
+
+        <Button
+            style="@style/OperatorButton"
+            android:text="@string/mul"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d4"
+            android:id="@+id/d4"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d5"
+            android:id="@+id/d5"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d6"
+            android:id="@+id/d6"
+            android:textSize="@dimen/font_size" />
+
+
+        <Button
+            style="@style/OperatorButton"
+            android:text="@string/sub"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d1"
+            android:id="@+id/d1"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d2"
+            android:id="@+id/d2"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d3"
+            android:id="@+id/d3"
+            android:textSize="@dimen/font_size" />
+
+
+        <Button
+            style="@style/OperatorButton"
+            android:text="@string/add"
+            android:textSize="@dimen/font_size" />
+
+        <Button
+            style="@style/DigitButton"
+            android:text="@string/d0"
+            android:id="@+id/d0"
+            android:textSize="@dimen/font_size"
+            app:layout_columnSpan="2"
+            app:layout_gravity="fill_horizontal" />
+
+        <Button
+            style="@style/CalcButton"
+            android:onClick="onSeparator"
+            android:text="@string/decimal_separator" />
+
+        <Button
+            style="@style/CalcButton"
+            android:background="@android:color/holo_purple"
+            android:onClick="onEquals"
+            android:text="@string/eqv"
+            android:textColor="@color/buttonTextColor"
+            android:textSize="@dimen/font_size" />
+
+
+    </android.support.v7.widget.GridLayout>
+
+    <LinearLayout
+        android:id="@+id/text_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_above="@id/buttons"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/main_margin_bottom"
+        >
+        <TextView
+            android:id="@+id/intermediate"
+            android:textSize="@dimen/font_size"
+            style="@style/CalcTextView"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/result"
+            android:text="@string/default_result"
+            style="@style/CalcTextView"
+            android:textSize="@dimen/main_font_size"
+            android:layout_weight="2"/>
+    </LinearLayout>
+</android.support.percent.PercentRelativeLayout>
