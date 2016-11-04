@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-public class MainActivity extends AppCompatActivity {
 
+public final class CalculatorActivity extends AppCompatActivity {
 
     private static final int MAX_MAIN_LENGTH = 15;
     private static final int MAX_INTERMEDIATE_LENGTH = 20;
@@ -78,8 +78,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateNumber() {
+        String trimmed = trimNumber(mainDisplay.getText().toString());
+        mainDisplay.setText(trimmed);
         numberBuilder.setLength(0);
-        numberBuilder.append(mainDisplay.getText());
+        numberBuilder.append(trimmed);
     }
 
     private void updateDisplay() {
@@ -153,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             if (index >= 1 && cs.charAt(index - 1) == decimalSeparator)
                 preliminary = cs.subSequence(0, index - 1);
         }
-        if (preliminary.equals("-0"))
+        if (preliminary.equals("-0") || preliminary.equals("-"))
             preliminary = "0";
         return preliminary.toString() + exponent;
     }
@@ -212,6 +214,8 @@ public class MainActivity extends AppCompatActivity {
     public void onDelete(View view) {
         int mainLength = mainDisplay.getText().length();
         if (state == State.NUMBER) {
+            if (mainDisplay.getText().charAt(mainLength - 1) == decimalSeparator)
+                isFractional = false;
             if (mainLength == 1) {
                 mainDisplay.setText(initialValue);
             } else {
@@ -245,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSeparator(View view) {
         int mainLength = mainDisplay.getText().length();
+        boolean hasMinus = mainDisplay.getText().charAt(0) == '-';
         if (state == State.NUMBER && mainLength >= MAX_MAIN_LENGTH)
             return;
         if (state == State.NUMBER && !isFractional) {
@@ -370,7 +375,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_calculator);
         mainDisplay = (TextView) findViewById(R.id.result);
         intermediateDisplay = (TextView) findViewById(R.id.intermediate);
         decimalSeparator = getString(R.string.decimal_separator).charAt(0);
