@@ -1,2 +1,1 @@
-include ':homework1'
 include ':app'
