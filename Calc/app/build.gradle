@@ -31,5 +31,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:gridlayout-v7:24.2.1'
     compile 'com.android.support:percent:24.2.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
 }
 

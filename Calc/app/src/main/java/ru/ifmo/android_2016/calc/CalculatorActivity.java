@@ -148,12 +148,16 @@ public final class CalculatorActivity extends AppCompatActivity {
         CharSequence preliminary = cs.subSequence(0, index);
         CharSequence exponent = (index == cs.length()) ? "" : cs.subSequence(index, cs.length());
         if (sepInd != -1) {
+            // remove trailing zeros
             while (index >= 1 && cs.charAt(index - 1) == '0') {
                 preliminary = cs.subSequence(0, index - 1);
                 --index;
             }
-            if (index >= 1 && cs.charAt(index - 1) == decimalSeparator)
+            // remove unnecessary separator
+            if (index >= 1 && cs.charAt(index - 1) == decimalSeparator) {
                 preliminary = cs.subSequence(0, index - 1);
+                isFractional = false;
+            }
         }
         if (preliminary.equals("-0") || preliminary.equals("-"))
             preliminary = "0";
@@ -214,7 +218,7 @@ public final class CalculatorActivity extends AppCompatActivity {
     public void onDelete(View view) {
         int mainLength = mainDisplay.getText().length();
         if (state == State.NUMBER) {
-            if (mainDisplay.getText().charAt(mainLength - 1) == decimalSeparator)
+            if (mainLength > 0 && mainDisplay.getText().charAt(mainLength - 1) == decimalSeparator)
                 isFractional = false;
             if (mainLength == 1) {
                 mainDisplay.setText(initialValue);
@@ -249,7 +253,6 @@ public final class CalculatorActivity extends AppCompatActivity {
 
     public void onSeparator(View view) {
         int mainLength = mainDisplay.getText().length();
-        boolean hasMinus = mainDisplay.getText().charAt(0) == '-';
         if (state == State.NUMBER && mainLength >= MAX_MAIN_LENGTH)
             return;
         if (state == State.NUMBER && !isFractional) {
